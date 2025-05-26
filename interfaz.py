@@ -3,6 +3,7 @@ from tkinter import ttk
 from funciones import *
 
 
+
 listado = listaJuegos()
 #VENTANA
 ventana = tk.Tk()
@@ -29,18 +30,23 @@ tabla.heading("PRECIO",text="PRECIO")
 #FOR PARA INSERTAR DATOS
 cargarTabla(tabla,listado)
 ###########################################
+
+
 #Menu Botones
 #
 #Agregar
-agregar_btn=tk.Button(ventana, text="Agregar Productos", width=15, pady=4, command=lambda:(agregarTK(ventana)))
+agregar_btn=tk.Button(ventana, text="Agregar Productos", width=15, pady=4, command=lambda:(agregarTK(ventana,tabla)))
 agregar_btn.place(x=225,y=400)
 #Editar
-editar_btn=tk.Button(ventana, text="Editar Productos", width=15, pady=4)
+editar_btn=tk.Button(ventana, text="Editar Productos", width=15, pady=4, command=lambda:(formularioEditar(ventana,tabla)))
 editar_btn.place(x=350,y=400)
 #Eliminar
 eliminar_btn=tk.Button(ventana, text="Eliminar", width=15, pady=4, command=lambda:(eliminarJuego(tabla)))
 eliminar_btn.place(x=475,y=400)
+#Estadisticas
+estadisticas_btn = tk.Button(ventana, text="Ver estadísticas", width=15, pady=4, command=lambda:(estadisticas()))
+estadisticas_btn.place(x=600,y=400)
 #Cerrar
 cerrar_btn=tk.Button(ventana, text="Cerrar",width=15, pady=4, command=ventana.destroy)
-cerrar_btn.place(x=600,y=400)
+cerrar_btn.place(x=725, y=400)
 ventana.mainloop()
